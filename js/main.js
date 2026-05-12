@@ -1,24 +1,43 @@
-import '../css/style.css'
-import javascriptLogo from '../javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import '../css/style.css';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const editableElements = document.querySelectorAll('[contenteditable="true"]');
 
-setupCounter(document.querySelector('#counter'))
+editableElements.forEach(el => {
+
+  const savedValue = localStorage.getItem(el.id);
+  if (savedValue) el.innerText = savedValue;
+
+  el.addEventListener('input', () => {
+    localStorage.setItem(el.id, el.innerText);
+  });
+});
+
+
+const downloadBtn = document.getElementById('download-btn');
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
+
+
+document.addEventListener('mousedown', (e) => {
+  const target = e.target.closest('.resume-container');
+  if (!target) return;
+
+  const circle = document.createElement('span');
+  const diameter = Math.max(target.clientWidth, target.clientHeight);
+  const radius = diameter / 2;
+  const rect = target.getBoundingClientRect();
+
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${e.clientX - rect.left - radius}px`;
+  circle.style.top = `${e.clientY - rect.top - radius}px`;
+  circle.classList.add('ripple');
+
+  const oldRipple = target.querySelector('.ripple');
+  if (oldRipple) oldRipple.remove();
+
+  target.appendChild(circle);
+  setTimeout(() => circle.remove(), 600);
+});

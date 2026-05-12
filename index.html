@@ -1,13 +1,29 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мое Резюме</title>
+</head>
+<body>
+    <div id="app">
+      <div class="resume-container">
+        <button id="download-btn" class="no-print">Скачать PDF</button>
+    
+        <h1 id="name" contenteditable="true">Ваше Имя</h1>
+        <p id="job-title" contenteditable="true">Frontend Developer</p>
+        
+        <section>
+          <h2>Контакты</h2>
+          <p id="contacts" contenteditable="true">Email: example@mail.com</p>
+        </section>
+    
+        <section>
+          <h2>О себе</h2>
+          <p id="about" contenteditable="true">Здесь можно написать о своем опыте...</p>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/js/main.js"></script>
+</body>
 </html>
