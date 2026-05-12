@@ -7,24 +7,84 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="app">
+  <div id="app">
       <div class="resume-container">
-        <button id="download-btn" class="no-print">Скачать PDF</button>
-    
-        <h1 id="name" contenteditable="true">Тихомиров Никита</h1>
-        <p id="job-title" contenteditable="true">Студент 1 курса группы ИКС</p>
-        
-        <section>
-          <h2>Контакты</h2>
-          <p id="contacts" contenteditable="true">Email: tinikitos@gmail.com</p>
-        </section>
-    
-        <section>
-          <h2>О себе</h2>
-          <p id="about" contenteditable="true">Я учусь на первом курсе в группе ИКС!</p>
-        </section>
+          <button id="download-btn" class="no-print">Скачать PDF</button>
+
+          <header class="header">
+              <div class="profile-main">
+                  <div class="avatar">
+                      <img src="./my-photo.jpg" alt="Профиль" id="profile-img">
+                  </div>
+
+
+                  <div class="intro">
+                      <p>Привет 👋 Я</p>
+                      <h1 id="name" contenteditable="true">Тихомиров Никита</h1>
+                      <p id="job-title" contenteditable="true" class="subtitle">AI-инженер</p>
+                  </div>
+              </div>
+
+
+              <div class="languages card">
+                  <h3>Языки</h3>
+                  <div class="lang-item">
+                      <span>Русский</span> 
+                      <div class="progress"><div class="bar" style="width: 100%"></div></div>
+                  </div>
+                  <div class="lang-item">
+                      <span>Английский</span> 
+                      <div class="progress"><div class="bar" style="width: 70%"></div></div>
+                  </div>
+              </div>
+          </header>
+
+          <div class="main-grid">
+              <div class="left-col">
+                  <section class="experience">
+                      <h2>Опыт работы</h2>
+                      <div class="card highlight" contenteditable="true">
+                          <span class="date">2023 - Настоящее время</span>
+                          <h3>Изучение Frontend</h3>
+                          <p>Университетский проект | Полная занятость</p>
+                      </div>
+                      <div class="card" contenteditable="true">
+                          <span class="date">2022 - 2023</span>
+                          <h3>Графический дизайн</h3>
+                          <p>Фриланс | Удаленно</p>
+                      </div>
+                  </section>
+
+                  <section class="education">
+                      <h2>Образование</h2>
+                      <div class="edu-grid">
+                          <div class="card green" contenteditable="true">
+                              <span class="date">2023</span>
+                              <h3>Университет</h3>
+                              <p>Информационные технологии</p>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+
+              <div class="right-col">
+                  <section class="tools card">
+                      <h2>Инструменты</h2>
+                      <div class="tags">
+                          <span>VS Code</span> <span>Figma</span> <span>Git</span> <span>Node.js</span>
+                      </div>
+                  </section>
+                  
+                  <section class="interests card">
+                      <h2>Интересы</h2>
+                      <div class="tags">
+                          <span>Дизайн</span> <span>Программирование</span> <span>Игры</span> <span>Исследования</span>
+                      </div>
+                  </section>
+              </div>
+          </div>
       </div>
-    </div>
-    <script type="module" src="./js/main.js"></script>
+  </div>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

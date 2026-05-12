@@ -1,40 +1,142 @@
+:root {
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --accent: #4ade80;
+    --text-main: #1f2937;
+}
+
 body {
-    background-color: #f0f2f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    margin: 0; 
     padding: 20px;
 }
 
 .resume-container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    border-radius: 20px;
     position: relative;
-    overflow: hidden; /* Важно для волн */
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-h1 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-h2 { color: #007bff; margin-top: 20px; }
-
-button { 
-    background: #007bff; 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
+#download-btn {
+    background: #4ade80;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
 }
 
-button:hover { background: #0056b3; }
+#download-btn:hover {
+    background: #22c55e;
+}
 
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: stretch;
+}
+
+.profile-main {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 20px;
+    flex: 2;
+    min-width: 350px;
+}
+
+.avatar {
+    width: 130px !important;
+    height: 130px !important;
+    min-width: 130px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.intro h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 0 0 5px 0;
+    color: #111827;
+}
+
+.subtitle {
+    margin: 0;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 25px;
+}
+
+.card { 
+    background: #f9fafb; 
+    padding: 20px; 
+    border-radius: 15px; 
+    margin-bottom: 20px; 
+}
+
+.highlight { background: var(--accent); color: white; }
+.green { background: #dcfce7; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags span { 
+    background: white; 
+    border: 1px solid #e5e7eb; 
+    padding: 6px 14px; 
+    border-radius: 20px; 
+    font-size: 14px; 
+}
+
+.languages.card {
+    flex: 1;
+    min-width: 250px;
+    margin: 0;
+}
+
+.lang-item { margin-bottom: 15px; }
+.progress { 
+    width: 100%; 
+    height: 8px; 
+    background: #e5e7eb; 
+    border-radius: 10px; 
+    margin-top: 8px; 
+}
+.bar { height: 100%; background: var(--accent); border-radius: 10px; }
 
 .ripple {
     position: absolute;
-    background: rgba(0, 123, 255, 0.2);
+    background: rgba(74, 222, 128, 0.25);
     border-radius: 50%;
     transform: scale(0);
     animation: ripple-effect 0.6s linear;
@@ -47,6 +149,7 @@ button:hover { background: #0056b3; }
 
 @media print {
     .no-print { display: none !important; }
-    body { background: white; padding: 0; }
-    .resume-container { box-shadow: none; border: none; margin: 0; width: 100%; }
+    body { padding: 0; background: white; }
+    .resume-container { box-shadow: none; border: none; width: 100%; margin: 0; padding: 20px; }
+    .profile-main { background: #f9fafb !important; -webkit-print-color-adjust: exact; }
 }
